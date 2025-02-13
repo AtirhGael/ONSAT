@@ -45,6 +45,24 @@ export default function Contact() {
           <p className="text-xl text-gray-600">We'd love to hear from you. Let us know how we can help.</p>
         </motion.div>
 
+        {/* Contact Information */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-20 mb-20">
+          {contactInfo.map((info, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="bg-white p-6 rounded-xl shadow-lg"
+            >
+              <div className="text-blue-600 mb-4">{info.icon}</div>
+              <h3 className="text-lg font-semibold mb-2">{info.title}</h3>
+              <p className="text-blue-600 font-medium mb-2">{info.details}</p>
+              <p className="text-gray-600 text-sm">{info.description}</p>
+            </motion.div>
+          ))}
+        </div>
+
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Globe Visualization */}
           <motion.div
@@ -100,24 +118,6 @@ export default function Contact() {
               </button>
             </form>
           </motion.div>
-        </div>
-
-        {/* Contact Information */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-20">
-          {contactInfo.map((info, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white p-6 rounded-xl shadow-lg"
-            >
-              <div className="text-blue-600 mb-4">{info.icon}</div>
-              <h3 className="text-lg font-semibold mb-2">{info.title}</h3>
-              <p className="text-blue-600 font-medium mb-2">{info.details}</p>
-              <p className="text-gray-600 text-sm">{info.description}</p>
-            </motion.div>
-          ))}
         </div>
       </div>
     </div>
