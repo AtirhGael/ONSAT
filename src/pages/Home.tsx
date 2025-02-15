@@ -16,30 +16,30 @@ import { Link } from 'react-router-dom';
 export default function Home() {
   const features = [
     {
-      icon: <MapPin className="h-8 w-8 text-blue-600" />,
+      icon: <MapPin className="h-8 w-8 text-icons" />,
       title: "Real-Time Tracking",
       description: "Monitor your vehicles 24/7 with precise GPS location updates every 30 seconds"
     },
     {
-      icon: <Shield className="h-8 w-8 text-blue-600" />,
+      icon: <Shield className="h-8 w-8 text-icons" />,
       title: "Anti-Theft Protection",
       description: "Instant alerts for unauthorized movement and remote engine immobilization"
     },
     {
-      icon: <Bell className="h-8 w-8 text-blue-600" />,
+      icon: <Bell className="h-8 w-8 text-icons" />,
       title: "Smart Notifications",
       description: "Customizable alerts for speed, geofencing, and maintenance schedules"
     },
     {
-      icon: <BarChart3 className="h-8 w-8 text-blue-600" />,
+      icon: <BarChart3 className="h-8 w-8 text-icons" />,
       title: "Advanced Analytics",
       description: "Comprehensive reports on fuel consumption, driver behavior, and route optimization"
     }
   ];
 
   const stats = [
-    { icon: <Car />, value: "50,000+", label: "Vehicles Tracked" },
-    { icon: <Users />, value: "10,000+", label: "Happy Customers" },
+    { icon: <Car />, value: "5,000+", label: "Vehicles Tracked" },
+    { icon: <Users />, value: "1,500+", label: "Happy Customers" },
     { icon: <Clock />, value: "99.9%", label: "Uptime" },
     { icon: <Gauge />, value: "30sec", label: "Update Frequency" }
   ];
@@ -65,7 +65,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-5xl font-bold mb-4"
+                className="text-5xl font-bold mb-4 text-white"
               >
                 Advanced Vehicle Tracking Solutions
               </motion.h1>
@@ -85,12 +85,12 @@ export default function Home() {
               >
                 <Link
                   to="/contact"
-                  className="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition-colors inline-block"
+                  className="bg-primary text-white px-8 py-3 rounded-full hover:bg-hover transition-colors inline-block"
                 >
                   Get Started
                 </Link>
                 <button 
-                  className="bg-white text-blue-600 px-8 py-3 rounded-full hover:bg-gray-100 transition-colors"
+                  className="bg-white text-gray-900 px-8 py-3 rounded-full hover:bg-hover hover:text-white transition-colors"
                   onClick={() => document.getElementById('request-demo')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Request Demo
@@ -111,8 +111,8 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Advanced Tracking Features</h2>
-            <p className="text-xl text-gray-600">Everything you need to manage your fleet effectively</p>
+            <h2 className="text-5xl font-bold text-headerText mb-4">Advanced Tracking Features</h2>
+            <p className="text-xl text-headerText">Everything you need to manage your fleet effectively</p>
           </motion.div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
@@ -125,8 +125,8 @@ export default function Home() {
                 className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
               >
                 <div className="mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
+                <h3 className="text-xl font-semibold mb-2 text-headerText">{feature.title}</h3>
+                <p className="text-text">{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -143,21 +143,22 @@ export default function Home() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl font-bold mb-6">Experience Real-Time Tracking</h2>
-              <p className="text-xl text-gray-600 mb-8">
+              <h2 className="text-4xl font-bold mb-2 text-headerText">Comming Soon.</h2>
+              <h2 className="text-4xl font-bold mb-6 text-headerText">Experience Real-Time Tracking</h2>
+              <p className="text-xl text-text mb-8">
                 Our advanced tracking system provides real-time updates every 30 seconds, ensuring you always know where your vehicles are and how they're performing.
               </p>
               <div className="space-y-4">
                 <div className="flex items-center">
-                  <Smartphone className="h-6 w-6 text-blue-600 mr-3" />
+                  <Smartphone className="h-6 w-6 text-text mr-3" />
                   <span>Mobile app for iOS and Android</span>
                 </div>
                 <div className="flex items-center">
-                  <Bell className="h-6 w-6 text-blue-600 mr-3" />
+                  <Bell className="h-6 w-6 text-text mr-3" />
                   <span>Instant notifications</span>
                 </div>
                 <div className="flex items-center">
-                  <Shield className="h-6 w-6 text-blue-600 mr-3" />
+                  <Shield className="h-6 w-6 text-text mr-3" />
                   <span>Advanced security features</span>
                 </div>
               </div>
@@ -180,9 +181,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+      
 
       {/* Stats Section */}
-      <section className="py-20 bg-blue-600">
+      <section className="py-20 bg-primary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
@@ -214,8 +216,8 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-bold mb-4">Ready to Get Started?</h2>
-            <p className="text-xl text-gray-600 mb-8">Join thousands of satisfied customers who trust ONSAT for their vehicle tracking needs</p>
+            <h2 className="text-4xl font-bold mb-4 text-headerText">Ready to Get Started?</h2>
+            <p className="text-xl text-text mb-8">Join thousands of satisfied customers who trust ONSAT for their vehicle tracking needs</p>
             <Link
               to="/contact"
               className="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition-colors inline-block"

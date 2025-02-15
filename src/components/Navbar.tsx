@@ -23,23 +23,26 @@ export default function Navbar({ isScrolled }: { isScrolled: boolean }) {
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <Link to="/" className="flex items-center">
-              <img src={logo} className="h-10 w-20 text-blue-600" alt="onSAT Logo" />
+              <img src={logo} className="h-10 w-20" alt="onSAT Logo" />
             </Link>
 
             {/* Desktop Menu */}
             <div className="hidden md:flex space-x-8 items-center">
-              <Link to="/" className="text-gray-800 hover:text-blue-600 transition-colors">
+              <Link to="/" className="text-gray-800 hover:text-primary transition-colors">
                 Home
               </Link>
-              <Link to="/about" className="text-gray-800 hover:text-blue-600 transition-colors">
+              <Link to="/solutions" className="text-gray-800 hover:text-primary transition-colors">
+                Solution
+              </Link>
+              <Link to="/about" className="text-gray-800 hover:text-primary transition-colors">
                 About
               </Link>
-              <Link to="/contact" className="text-gray-800 hover:text-blue-600 transition-colors">
+              <Link to="/contact" className="text-gray-800 hover:text-primary transition-colors">
                 Contact
               </Link>
               <button
                 onClick={openModal}
-                className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-hover transition-colors"
               >
                 Request Demo
               </button>
@@ -47,7 +50,7 @@ export default function Navbar({ isScrolled }: { isScrolled: boolean }) {
 
             {/* Mobile Menu Button */}
             <div className="md:hidden flex items-center">
-              <button onClick={toggleMenu} className="text-gray-800 hover:text-blue-600 focus:outline-none">
+              <button onClick={toggleMenu} className="text-gray-800 hover:text-primary focus:outline-none">
                 {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </button>
             </div>

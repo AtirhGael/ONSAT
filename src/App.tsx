@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Footer from './components/Footer';
+import Solutions from './pages/Solutions';
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -22,6 +23,7 @@ function App() {
       <Navbar isScrolled={isScrolled} />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/solutions" element={<Solutions />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
