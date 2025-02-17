@@ -55,9 +55,9 @@ export default function Contact() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="bg-white p-6 rounded-xl shadow-lg"
             >
-              <div className="text-blue-600 mb-4">{info.icon}</div>
-              <h3 className="text-lg font-semibold mb-2">{info.title}</h3>
-              <p className="text-blue-600 font-medium mb-2">{info.details}</p>
+              <div className="text-icons mb-4">{info.icon}</div>
+              <h3 className="text-lg text-headerText font-semibold mb-2">{info.title}</h3>
+              <p className="text-text font-medium mb-2">{info.details}</p>
               <p className="text-gray-600 text-sm">{info.description}</p>
             </motion.div>
           ))}
@@ -136,7 +136,7 @@ export default function Contact() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   type="submit"
-                  className="w-full bg-gradient-to-r from-blue-600 to-blue-500 text-white px-6 py-3 rounded-lg hover:from-blue-700 hover:to-blue-600 transition-all shadow-md"
+                  className="w-full bg-gradient-to-r from-gray-900 to-primary text-white px-6 py-3 rounded-lg hover:from-hover hover:to-blue-600 transition-all shadow-md"
                 >
                   Send Message
                 </motion.button>

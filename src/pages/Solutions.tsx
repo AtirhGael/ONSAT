@@ -66,7 +66,7 @@ function Solutions() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <div className="flex items-start gap-4">
-                <SimCard className="w-8 h-8 text-blue-600 flex-shrink-0 mt-1" />
+                <SimCard className="w-8 h-8 text-icons flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="text-xl font-bold mb-2">Advanced SIM Technology</h3>
                   <p className="text-text">
@@ -75,7 +75,7 @@ function Solutions() {
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <SatelliteDish className="w-8 h-8 text-blue-600 flex-shrink-0 mt-1" />
+                <SatelliteDish className="w-8 h-8 text-icons flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="text-xl font-bold mb-2">Satellite Tracking</h3>
                   <p className="text-text">
