@@ -45,13 +45,13 @@ export default function About() {
             viewport={{ once: true }}
             className="prose prose-lg mx-auto"
           >
-            <h2 className="text-3xl font-bold text-center mb-8">Our Journey</h2>
-            <p className="text-gray-600 mb-6">
+            <h2 className="text-5xl font-bold text-center mb-8 text-headerText">Our Journey</h2>
+            <p className="text-text mb-6">
               Founded in 2019, ONSAT emerged from a vision to revolutionize vehicle tracking technology.
-              Our CEO, Sarah Chen, recognized the need for more reliable and sophisticated tracking solutions
+              Our CEO, Zuo Bruno, recognized the need for more reliable and sophisticated tracking solutions
               in an increasingly mobile world.
             </p>
-            <p className="text-gray-600 mb-6">
+            <p className="text-text mb-6">
               What started as a small team of innovative engineers has grown into a global company serving
               thousands of clients across multiple industries. Our commitment to cutting-edge technology
               and exceptional service has made us a leader in the vehicle tracking industry.
@@ -138,7 +138,7 @@ export default function About() {
       </section>
       {/* Stats Section */}
       <h3 className="text-center text-5xl font-bold mb-4 py-10">Our Philosophy</h3>
-      <section className="py-20 bg-blue-600">
+      <section className="py-20 bg-primary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (

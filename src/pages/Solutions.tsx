@@ -1,5 +1,4 @@
-import React from 'react';
-import { ArrowRight, Truck, Wifi, SatelliteDish, Car as SimCard, HelpCircle } from 'lucide-react';
+import { ArrowRight, SatelliteDish, Car as SimCard } from 'lucide-react';
 import simCard from '../assets/iot-sim.jpg';
 
 function Solutions() {
@@ -40,20 +39,20 @@ function Solutions() {
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-gray-100 p-8 rounded-xl hover:shadow-xl transition-all">
-              <h3 className="text-2xl font-bold mb-4">Step 1: Contact ONSAT</h3>
-              <p className="text-gray-600">
+              <h3 className="text-2xl font-bold mb-4 text-headerText">Step 1: Contact ONSAT</h3>
+              <p className="text-text ">
                 Communicate your business requirements and receive draft proposal and quote, see if you qualify for financing
               </p>
             </div>
-            <div className="bg-blue-600 text-white p-8 rounded-xl hover:shadow-xl transition-all">
-              <h3 className="text-2xl font-bold mb-4">Step 2: Installation and Training</h3>
+            <div className="bg-primary text-white p-8 rounded-xl hover:shadow-xl transition-all">
+              <h3 className="text-2xl font-bold mb-4 ">Step 2: Installation and Training</h3>
               <p className="text-white/90">
                 Specialists performs hardware install, software set-up and provide comprehensive onsite and online training and onboarding
               </p>
             </div>
             <div className="bg-gray-100 p-8 rounded-xl hover:shadow-xl transition-all">
-              <h3 className="text-2xl font-bold mb-4">Step 3: Support Commitment</h3>
-              <p className="text-gray-600">
+              <h3 className="text-2xl font-bold mb-4 text-headerText">Step 3: Support Commitment</h3>
+              <p className="text-text">
                 As a Tramigo customer, you are our partner with access to technical support and new solution development
               </p>
             </div>
@@ -70,7 +69,7 @@ function Solutions() {
                 <SimCard className="w-8 h-8 text-blue-600 flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="text-xl font-bold mb-2">Advanced SIM Technology</h3>
-                  <p className="text-gray-600">
+                  <p className="text-text">
                     Multi-network SIM cards ensure your fleet stays connected across all territories
                   </p>
                 </div>
@@ -79,7 +78,7 @@ function Solutions() {
                 <SatelliteDish className="w-8 h-8 text-blue-600 flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="text-xl font-bold mb-2">Satellite Tracking</h3>
-                  <p className="text-gray-600">
+                  <p className="text-text">
                     Real-time satellite tracking provides accurate location data anywhere in the world
                   </p>
                 </div>

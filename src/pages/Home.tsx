@@ -216,11 +216,11 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-bold mb-4 text-headerText">Ready to Get Started?</h2>
+            <h2 className="text-5xl font-bold mb-4 text-headerText">Ready to Get Started?</h2>
             <p className="text-xl text-text mb-8">Join thousands of satisfied customers who trust ONSAT for their vehicle tracking needs</p>
             <Link
               to="/contact"
-              className="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition-colors inline-block"
+              className="bg-primary text-white px-8 py-3 rounded-full hover:bg-hover transition-colors inline-block"
             >
               Contact Sales
             </Link>
