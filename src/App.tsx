@@ -6,6 +6,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Footer from './components/Footer';
 import Solutions from './pages/Solutions';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -28,6 +29,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer/>
+      <ToastContainer />
     </div>
   );
 }

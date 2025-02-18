@@ -1,17 +1,54 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react'; // Icons for mobile menu
 import logo from '../assets/onSAT Logo 1024 x 500.png';
+import emailjs from '@emailjs/browser';
+import { toast } from 'react-toastify';
 
 export default function Navbar({ isScrolled }: { isScrolled: boolean }) {
   const location = useLocation();
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // State for mobile menu
-  const [isModalOpen, setIsModalOpen] = useState(false); // State for modal
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false); 
+  const [loading, setloading] = useState(false)
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
+  const closeModal = () => setIsModalOpen(false)
 
+  const form = useRef<HTMLFormElement>(null); 
+
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setloading(true)
+
+    if (!form.current) {
+      console.error('Form reference is not set');
+      return;
+    }
+
+    emailjs
+      .sendForm(
+        'service_k8sde1k',
+        'template_j4877md',
+        form.current,
+        {
+          publicKey: '6L1q50wu2phEOf1PF',
+        }
+      )
+      .then(
+        () => {
+          console.log('SUCCESS!');
+          toast("Massage recieved. Thank you for contacting ONSAT we will be in touch");
+          setIsModalOpen(false)
+          setloading(false)
+        },
+        (error) => {
+          console.log('FAILED...', error.text);
+          toast("failed to send Email Please try again later");
+          setloading(false)
+        }
+      );
+  };
   return (
     <>
       <nav
@@ -85,13 +122,13 @@ export default function Navbar({ isScrolled }: { isScrolled: boolean }) {
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-white p-6 rounded-lg shadow-lg w-11/12 max-w-md">
-            <h2 className="text-xl font-bold mb-4">Request a Demo</h2>
-            <form>
+            <h2 className="text-xl text-headerText font-bold mb-4">Request a Demo</h2>
+            <form ref={form} onSubmit={sendEmail} >
               <div className="mb-4">
                 <label className="block text-gray-700">Name</label>
                 <input
                   type="text"
-                  className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                  className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                   placeholder="Enter your name"
                 />
               </div>
@@ -99,14 +136,14 @@ export default function Navbar({ isScrolled }: { isScrolled: boolean }) {
                 <label className="block text-gray-700">Email</label>
                 <input
                   type="email"
-                  className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                  className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                   placeholder="Enter your email"
                 />
               </div>
               <div className="mb-4">
                 <label className="block text-gray-700">Message</label>
                 <textarea
-                  className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                  className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                   placeholder="Enter your message"
                   rows={4}
                 />
@@ -121,9 +158,9 @@ export default function Navbar({ isScrolled }: { isScrolled: boolean }) {
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                  className="px-4 py-2 bg-primary text-white rounded-lg hover:bg-hover transition-colors"
                 >
-                  Submit
+                  {loading ? 'Submiting...': 'Submit'}
                 </button>
               </div>
             </form>
