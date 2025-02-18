@@ -89,12 +89,6 @@ export default function Home() {
                 >
                   Get Started
                 </Link>
-                <button 
-                  className="bg-white text-gray-900 px-8 py-3 rounded-full hover:bg-hover hover:text-white transition-colors"
-                  onClick={() => document.getElementById('request-demo')?.scrollIntoView({ behavior: 'smooth' })}
-                >
-                  Request Demo
-                </button>
               </motion.div>
             </motion.div>
           </div>
