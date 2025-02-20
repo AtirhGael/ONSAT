@@ -8,40 +8,50 @@ import { toast } from 'react-toastify';
 import emailjs from '@emailjs/browser';
 
 export default function Contact() {
-  
-  const [loading, setLoading ] = useState(false)
+  const [loading, setLoading] = useState(false);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+
+  const templateParam = {
+    from_name: name,
+    from_email: email,
+    message: message,
+    to_name: 'ONSAT',
+  };
 
   const contactInfo = [
     {
       icon: <Phone className="h-6 w-6" />,
-      title: "Phone",
-      details: "+1 (555) 123-4567",
-      description: "Available Mon-Fri, 9AM-6PM EST"
+      title: 'Phone',
+      details: '+1 (833) 200-5678',
+      description: 'Available Mon-Fri, 9AM-6PM EST',
     },
     {
       icon: <Mail className="h-6 w-6" />,
-      title: "Email",
-      details: "support@onsat.com",
-      description: "We'll respond within 24 hours"
+      title: 'Email',
+      details: 'support@onsat.com',
+      description: "We'll respond within 24 hours",
     },
     {
       icon: <HeadphonesIcon className="h-6 w-6" />,
-      title: "Technical Support",
-      details: "+1 (555) 987-6543",
-      description: "24/7 Technical Assistance"
+      title: 'Technical Support',
+      details: '+1 (833) 200-5678',
+      description: '24/7 Technical Assistance',
     },
     {
       icon: <MapPin className="h-6 w-6" />,
-      title: "Location",
-      details: "New York, NY",
-      description: "123 Tracking Avenue"
-    }
+      title: 'Location',
+      details: 'States of Delaware',
+      description: '838 Walker Road Suite',
+    },
   ];
-const form = useRef<HTMLFormElement>(null); 
+
+  const form = useRef<HTMLFormElement>(null);
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setLoading(true)
+    setLoading(true);
 
     if (!form.current) {
       console.error('Form reference is not set');
@@ -49,27 +59,25 @@ const form = useRef<HTMLFormElement>(null);
     }
 
     emailjs
-      .sendForm(
-        'service_k8sde1k',
-        'template_j4877md',
-        form.current,
-        {
-          publicKey: '6L1q50wu2phEOf1PF',
-        }
-      )
+      .send('service_9q8x8q8', 'template_8x8q8x8', templateParam, 'user_8x8q8x8')
       .then(
         () => {
           console.log('SUCCESS!');
-          toast("Massage recieved. Thank you for contacting ONSAT we will be in touch");
-          setLoading(false)
+          toast('Message received. Thank you for contacting ONSAT. We will be in touch.');
+          setLoading(false);
+
+          setName('');
+          setEmail('');
+          setMessage('');
         },
         (error) => {
           console.log('FAILED...', error.text);
-          toast("failed to send Email Please try again later");
-          setLoading(false)
-        }
+          toast('Failed to send email. Please try again later.');
+          setLoading(false);
+        },
       );
   };
+
   return (
     <div className="min-h-screen pt-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -123,7 +131,7 @@ const form = useRef<HTMLFormElement>(null);
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <form className="space-y-6" ref={form} onSubmit={sendEmail} >
+            <form className="space-y-6" ref={form} onSubmit={sendEmail}>
               <motion.form
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -137,9 +145,12 @@ const form = useRef<HTMLFormElement>(null);
                   </label>
                   <input
                     type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                     id="name"
                     className="mt-1 block w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none"
                     placeholder="Enter your name"
+                    required
                   />
                 </div>
 
@@ -149,10 +160,13 @@ const form = useRef<HTMLFormElement>(null);
                     Email
                   </label>
                   <input
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     type="email"
                     id="email"
                     className="mt-1 block w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none"
                     placeholder="Enter your email"
+                    required
                   />
                 </div>
 
@@ -163,9 +177,12 @@ const form = useRef<HTMLFormElement>(null);
                   </label>
                   <textarea
                     id="message"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
                     rows={4}
                     className="mt-1 block w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none"
                     placeholder="Enter your message"
+                    required
                   ></textarea>
                 </div>
 
@@ -175,8 +192,9 @@ const form = useRef<HTMLFormElement>(null);
                   whileTap={{ scale: 0.95 }}
                   type="submit"
                   className="w-full bg-gradient-to-r from-gray-900 to-primary text-white px-6 py-3 rounded-lg hover:from-hover hover:to-blue-600 transition-all shadow-md"
+                  disabled={loading}
                 >
-                {loading ? 'Sending...': 'Send Message'}
+                  {loading ? 'Sending...' : 'Send Message'}
                 </motion.button>
               </motion.form>
             </form>

@@ -38,7 +38,7 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">Contact</h4>
             <ul className="space-y-2 ">
               <li>Email: info@onsat.com</li>
-              <li>Phone: +1 (555) 123-4567</li>
+              <li>Phone: +1 (833) 200-5678</li>
               <li>Support: 24/7 Available</li>
             </ul>
           </div>

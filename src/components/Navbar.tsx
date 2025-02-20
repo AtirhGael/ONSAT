@@ -10,6 +10,16 @@ export default function Navbar({ isScrolled }: { isScrolled: boolean }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false); 
   const [loading, setloading] = useState(false)
+  const [name, setname] = useState('');
+  const [email, setemail] = useState('')
+  const [massage, setmassage] = useState('');
+
+  const templateParam = {
+    from_name: name,
+    from_email: email,
+    message: massage,
+    to_name: 'ONSAT',
+  }
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const openModal = () => setIsModalOpen(true);
@@ -26,15 +36,7 @@ export default function Navbar({ isScrolled }: { isScrolled: boolean }) {
       return;
     }
 
-    emailjs
-      .sendForm(
-        'service_k8sde1k',
-        'template_j4877md',
-        form.current,
-        {
-          publicKey: '6L1q50wu2phEOf1PF',
-        }
-      )
+    emailjs.send('service_k8sde1k', 'template_j4877md', templateParam, '6L1q50wu2phEOf1PF')
       .then(
         () => {
           console.log('SUCCESS!');
@@ -127,6 +129,8 @@ export default function Navbar({ isScrolled }: { isScrolled: boolean }) {
               <div className="mb-4">
                 <label className="block text-gray-700">Name</label>
                 <input
+                  value={name}
+                  onChange={(e) => setname(e.target.value)}
                   type="text"
                   className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                   placeholder="Enter your name"
@@ -135,6 +139,8 @@ export default function Navbar({ isScrolled }: { isScrolled: boolean }) {
               <div className="mb-4">
                 <label className="block text-gray-700">Email</label>
                 <input
+                  value={email}
+                  onChange={(e) => setemail(e.target.value)}
                   type="email"
                   className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                   placeholder="Enter your email"
@@ -143,6 +149,8 @@ export default function Navbar({ isScrolled }: { isScrolled: boolean }) {
               <div className="mb-4">
                 <label className="block text-gray-700">Message</label>
                 <textarea
+                  value={massage}
+                  onChange={(e) => setmassage(e.target.value)}
                   className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                   placeholder="Enter your message"
                   rows={4}
