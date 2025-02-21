@@ -1,14 +1,15 @@
 import { ArrowRight, SatelliteDish, Car as SimCard } from 'lucide-react';
 import simCard from '../assets/iot-sim.jpg';
+import { useState } from 'react';
+import vid from '../assets/invideo-ai-1080 OnSAT_ Revolutionizing Car Tracking with 2025-02-03.mp4';
 
 function Solutions() {
   return (
     <div className="min-h-screen bg-white ">
-      {/* Hero Section */}
       <section className="relative h-screen">
         <div className="absolute inset-0 bg-black/50 z-10" />
-        <div 
-          className="absolute inset-0 bg-cover bg-center z-0 " 
+        <div
+          className="absolute inset-0 bg-cover bg-center z-0 "
           style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80")' }}
         />
         <div className="relative z-20 container mx-auto px-6 h-full flex flex-col justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -26,15 +27,13 @@ function Solutions() {
               <p className="text-xl text-white/90">
                 Get started with mission critical fleet management
               </p>
-              <button className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full transition-all transform hover:scale-105 flex items-center gap-2">
+              <button className="px-8 py-3 bg-primary hover:bg-hover text-white rounded-full transition-all transform hover:scale-105 flex items-center gap-2">
                 Contact Us <ArrowRight className="w-5 h-5" />
               </button>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Steps Section */}
       <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-8">
@@ -85,7 +84,7 @@ function Solutions() {
               </div>
             </div>
             <div className="relative">
-              <img 
+              <img
                 src={simCard}
                 alt="Satellite Technology"
                 className="rounded-xl shadow-xl"
@@ -94,10 +93,23 @@ function Solutions() {
           </div>
         </div>
       </section>
-
-      {/* FAQ Section */}
       <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="container mx-auto px-6">
+        <div className="">
+          <div className="flex flex-col items-center">
+
+              <div className="w-full flex justify-center">
+                <video
+                  controls
+                  className="w-full max-w-6xl rounded-lg"
+                  src={vid}
+                />
+              </div>
+          </div>
+        </div>
+      </section>
+      {/* FAQ Section */}
+      <section className="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="container mx-auto">
           <h2 className="text-4xl font-bold text-center mb-12">Frequently Asked Questions</h2>
           <div className="max-w-3xl mx-auto space-y-6">
             <div className="bg-white shadow-md rounded-lg p-6">
